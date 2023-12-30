@@ -9,8 +9,8 @@
 기초 알고리즘 학습 및 문제풀이<br>
 | 섹션 | 태그 | 진행여부 |
 |------|---------|--------|
-| 01 | String | ✏️ |
-| 02 | Array | ✖️ |
+| 01 | String | ✅ |
+| 02 | Array | ✏️ |
 | 03 | Two pointers, Sliding window | ✖️ |
 | 04 | HashMap, TreeSet | ✖️ |
 | 05 | Stack, Queue | ✖️ |

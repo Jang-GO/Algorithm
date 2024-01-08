@@ -1,0 +1,21 @@
+{
+    "java.project.sourcePaths": [
+        "Basic_Alg/02. Array/큰 수 출력하기",
+        "Basic_Alg/02. Array/소수(에라토스테네스 체)",
+        "Basic_Alg/02. Array/보이는 학생",
+        "Basic_Alg/02. Array/가위바위보",
+        "Basic_Alg/01. String/회문 문자열",
+        "Basic_Alg/01. String/특정 문자 뒤집기",
+        "Basic_Alg/01. String/중복문자제거",
+        "Basic_Alg/01. String/유효한 팰린드롬",
+        "Basic_Alg/01. String/암호",
+        "Basic_Alg/01. String/숫자만 추출",
+        "Basic_Alg/01. String/문장 속 단어",
+        "Basic_Alg/01. String/문자열 압축",
+        "Basic_Alg/01. String/문자 찾기",
+        "Basic_Alg/01. String/대소문자 변환",
+        "Basic_Alg/01. String/단어 뒤집기",
+        "Basic_Alg/01. String/가장 짧은 문자거리",
+        "Basic_Alg/02. Array/뒤집은 소수"
+    ]
+}

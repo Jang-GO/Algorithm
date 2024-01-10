@@ -1,11 +1,14 @@
 {
     "java.project.sourcePaths": [
+        "Basic_Alg/03. Two pointers, Sliding window/두 배열 합치기",
+        "Basic_Alg/03. Two pointers, Sliding window/공통원소구하기",
         "Basic_Alg/02. Array/큰 수 출력하기",
         "Basic_Alg/02. Array/점수 계산",
         "Basic_Alg/02. Array/임시반장정하기",
         "Basic_Alg/02. Array/소수(에라토스테네스 체)",
         "Basic_Alg/02. Array/봉우리",
         "Basic_Alg/02. Array/보이는 학생",
+        "Basic_Alg/02. Array/멘토링",
         "Basic_Alg/02. Array/등수구하기",
         "Basic_Alg/02. Array/뒤집은 소수",
         "Basic_Alg/02. Array/격자판 최대합",
@@ -22,6 +25,6 @@
         "Basic_Alg/01. String/대소문자 변환",
         "Basic_Alg/01. String/단어 뒤집기",
         "Basic_Alg/01. String/가장 짧은 문자거리",
-        "Basic_Alg/02. Array/멘토링"
+        "Basic_Alg/03. Two pointers, Sliding window/최대 매출"
     ]
 }

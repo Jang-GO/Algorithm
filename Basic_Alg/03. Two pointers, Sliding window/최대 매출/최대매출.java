@@ -23,7 +23,7 @@ public class 최대매출 {
         String[] ttmp = br.readLine().split(" ");
 
         int[] arr = new int[N];
-        for(int i=0;i<N;i++){
+        for(int i=0;i<N; i++){
             arr[i] = Integer.parseInt(ttmp[i]);
         }
 

@@ -1,9 +1,13 @@
 {
     "java.project.sourcePaths": [
+        "05. Stack, Queue/크레인 인형뽑기(카카오)",
+        "05. Stack, Queue/올바른 괄호",
+        "05. Stack, Queue/괄호문자제거",
         "04. HashMap, TreeSet/학급 회장(해쉬)",
         "04. HashMap, TreeSet/아나그램",
+        "04. HashMap, TreeSet/모든 아나그램 찾기",
         "04. HashMap, TreeSet/매출액의 종류",
         "04. HashMap, TreeSet/K번째 큰 수",
-        "04. HashMap, TreeSet/모든 아나그램 찾기"
+        "05. Stack, Queue/후위식 연산"
     ]
 }

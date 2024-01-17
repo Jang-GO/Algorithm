@@ -1,7 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "06. Sorting and Searching/선택정렬",
+        "06. Sorting and Searching/버블정렬",
         "05. Stack, Queue/후위식 연산",
         "05. Stack, Queue/크레인 인형뽑기(카카오)",
+        "05. Stack, Queue/응급실",
         "05. Stack, Queue/올바른 괄호",
         "05. Stack, Queue/쇠막대기",
         "05. Stack, Queue/교육과정설계",
@@ -12,6 +15,6 @@
         "04. HashMap, TreeSet/모든 아나그램 찾기",
         "04. HashMap, TreeSet/매출액의 종류",
         "04. HashMap, TreeSet/K번째 큰 수",
-        "05. Stack, Queue/응급실"
+        "06. Sorting and Searching/삽입정렬"
     ]
 }

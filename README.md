@@ -13,8 +13,8 @@
 | 02 | Array | ✅ |
 | 03 | Two pointers, Sliding window | ✅ |
 | 04 | HashMap, TreeSet | ✅ |
-| 05 | Stack, Queue | ✏️ |
-| 06 | Sorting and Searching | ✖️ |
+| 05 | Stack, Queue | ✅ |
+| 06 | Sorting and Searching | ✏️ |
 | 07 | Recursive, Tree, Graph(basic of DFS,BFS) | ✖️ |
 | 08 | DFS, BFS | ✖️ |
 | 09 | Greedy Algorithm | ✖️ |

@@ -4,7 +4,10 @@
         "07. Recursive, Tree, Graph(basic of DFS,BFS)/팩토리얼",
         "07. Recursive, Tree, Graph(basic of DFS,BFS)/재귀함수",
         "07. Recursive, Tree, Graph(basic of DFS,BFS)/이진트리순회(DFS)",
+        "07. Recursive, Tree, Graph(basic of DFS,BFS)/이진트리 레벨탐색",
         "07. Recursive, Tree, Graph(basic of DFS,BFS)/이진수 출력",
+        "07. Recursive, Tree, Graph(basic of DFS,BFS)/송아지찾기1",
+        "07. Recursive, Tree, Graph(basic of DFS,BFS)/부분집합구하기",
         "06. Sorting and Searching/중복확인",
         "06. Sorting and Searching/좌표 정렬",
         "06. Sorting and Searching/장난꾸러기",
@@ -29,6 +32,6 @@
         "04. HashMap, TreeSet/매출액의 종류",
         "04. HashMap, TreeSet/K번째 큰 수",
         "02. Array/임시반장정하기",
-        "07. Recursive, Tree, Graph(basic of DFS,BFS)/부분집합구하기"
+        "07. Recursive, Tree, Graph(basic of DFS,BFS)/말단노드까지의 가장 짧은 경로(BFS)"
     ]
 }

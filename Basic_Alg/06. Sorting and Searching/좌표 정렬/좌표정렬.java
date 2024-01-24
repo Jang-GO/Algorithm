@@ -24,7 +24,6 @@ class Point implements Comparable<Point>{
 
 public class 좌표정렬 {
     public static void main(String[] args) throws IOException {
-        좌표정렬 T = new 좌표정렬();
         List<Point> list = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());

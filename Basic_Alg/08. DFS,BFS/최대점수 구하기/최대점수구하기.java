@@ -38,5 +38,6 @@ public class 최대점수구하기 {
         }
         T.DFS(0,0,m);
         System.out.println(maxScore);
+        
     }
 }

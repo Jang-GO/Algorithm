@@ -9,11 +9,11 @@ public class 피자배달거리{
             this.y = y;
         }
     }
-    }
+
     static int n,m,len, answer=Integer.MAX_VALUE;
     static int[][] board;
-    static ArrayList<Point> pizzaList;
-    static ArrayList<Point> houseList;
+    static ArrayList<Point> pizzaList = new ArrayList<>();
+    static ArrayList<Point> houseList= new ArrayList<>();
     static int[] combi;
     public void DFS(int L, int idx){
         if(L==m){
@@ -41,10 +41,11 @@ public class 피자배달거리{
         n = Integer.parseInt(tmp[0]);
         m = Integer.parseInt(tmp[1]);
         board = new int[n+1][n+1];
+        
         for(int i=1;i<=n;i++){
-            String[] tmp1 = br.readLint().split(" ");
+            String[] tmp1 = br.readLine().split(" ");
             for(int j=1;j<=n;j++){
-                board[i][j] = Integer.parseInt(tmp[j]);
+                board[i][j] = Integer.parseInt(tmp1[j]);
                 if(board[i][j]==1) houseList.add(new Point(i, j));
                 else if(board[i][j]==2) pizzaList.add(new Point(i,j));
             }

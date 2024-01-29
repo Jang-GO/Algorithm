@@ -8,6 +8,7 @@
         "08. DFS,BFS/조합 구하기",
         "08. DFS,BFS/순열구하기",
         "08. DFS,BFS/수열 추측하기",
+        "08. DFS,BFS/섬나라아일랜드",
         "08. DFS,BFS/바둑이승차",
         "08. DFS,BFS/미로탐색",
         "08. DFS,BFS/미로의 최단거리 통로",
@@ -48,6 +49,6 @@
         "04. HashMap, TreeSet/매출액의 종류",
         "04. HashMap, TreeSet/K번째 큰 수",
         "02. Array/임시반장정하기",
-        "08. DFS,BFS/섬나라아일랜드"
+        "08. DFS,BFS/피자배달거리"
     ]
 }

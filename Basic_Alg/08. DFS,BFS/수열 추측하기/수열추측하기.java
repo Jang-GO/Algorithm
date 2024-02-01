@@ -1,4 +1,3 @@
-import java.util.*;
 import java.io.*;
 
 class 수열추측하기{

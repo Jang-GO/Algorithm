@@ -1,6 +1,10 @@
 {
     "java.project.sourcePaths": [
+        "09. Greedy Algorithm/회의실배정",
+        "09. Greedy Algorithm/씨름선수",
+        "09. Greedy Algorithm/결혼식",
         "08. DFS,BFS/합이 같은 부분집합",
+        "08. DFS,BFS/피자배달거리",
         "08. DFS,BFS/토마토",
         "08. DFS,BFS/최대점수 구하기",
         "08. DFS,BFS/중복순열 구하기",
@@ -49,6 +53,6 @@
         "04. HashMap, TreeSet/매출액의 종류",
         "04. HashMap, TreeSet/K번째 큰 수",
         "02. Array/임시반장정하기",
-        "08. DFS,BFS/피자배달거리"
+        "09. Greedy Algorithm/최대수입스케쥴"
     ]
 }

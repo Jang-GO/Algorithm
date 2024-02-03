@@ -21,7 +21,7 @@ public class 최대수입스케쥴 {
     static int n, max = Integer.MIN_VALUE;
     public int solution(ArrayList<Lecture> list){
         int answer=0;
-        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder()); // 리버스오더 없으면 작은걸 우선순위로 poll
+        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder()); // 리버스오더가 있으면 내림차순으로 poll
         Collections.sort(list);
         int j=0;
         for(int i=max;i>0;i--){

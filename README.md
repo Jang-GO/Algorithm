@@ -16,9 +16,9 @@
 | 05 | Stack, Queue | ✅ |
 | 06 | Sorting and Searching | ✅ |
 | 07 | Recursive, Tree, Graph(basic of DFS,BFS) | ✅ |
-| 08 | DFS, BFS | ✏️ |
-| 09 | Greedy Algorithm | ✖️ |
-| 10 | dynamic programming | ✖️ |
+| 08 | DFS, BFS | ✅ |
+| 09 | Greedy Algorithm | ✅ |
+| 10 | dynamic programming | ✏️ |
 
 (✅ : 완료, ✖️ : 시작안함, ✏️ : 진행중)
 

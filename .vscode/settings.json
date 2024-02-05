@@ -1,6 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "Basic_Alg/10. Dynamic Programming/돌다리건너기",
+        "Basic_Alg/10. Dynamic Programming/계단오르기",
         "Basic_Alg/03. Two pointers, Sliding window/최대 매출",
+        "Basic_Alg/03. Two pointers, Sliding window/최대 길이 연속부분수열",
         "Basic_Alg/03. Two pointers, Sliding window/연속부분수열",
         "Basic_Alg/03. Two pointers, Sliding window/연속된 자연수의 합",
         "Basic_Alg/03. Two pointers, Sliding window/두 배열 합치기",
@@ -28,6 +31,6 @@
         "Basic_Alg/01. String/대소문자 변환",
         "Basic_Alg/01. String/단어 뒤집기",
         "Basic_Alg/01. String/가장 짧은 문자거리",
-        "Basic_Alg/03. Two pointers, Sliding window/최대 길이 연속부분수열"
+        "Basic_Alg/10. Dynamic Programming/최대부분증가수열(LIS)"
     ]
 }

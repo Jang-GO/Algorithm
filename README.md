@@ -18,11 +18,9 @@
 | 07 | Recursive, Tree, Graph(basic of DFS,BFS) | ✅ |
 | 08 | DFS, BFS | ✅ |
 | 09 | Greedy Algorithm | ✅ |
-| 10 | dynamic programming | ✏️ |
+| 10 | dynamic programming | ✅ |
 
 (✅ : 완료, ✖️ : 시작안함, ✏️ : 진행중)
 
-### 추가예정
-Basic_Alg 학습이 끝난 후 진행하고자 하는 방향
-- 난이도 1 or 백준 실버부터 플랫폼 문제풀이
-- 카카오 or 삼성 기출문제 풀이
+### ETC
+백준 문제풀기(자동커밋)

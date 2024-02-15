@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
+        "Basic_Alg/10. Dynamic Programming/최대점수구하기",
         "Basic_Alg/10. Dynamic Programming/최대부분증가수열(LIS)",
         "Basic_Alg/10. Dynamic Programming/동전교환",
         "Basic_Alg/10. Dynamic Programming/돌다리건너기",
@@ -34,6 +35,6 @@
         "Basic_Alg/01. String/대소문자 변환",
         "Basic_Alg/01. String/단어 뒤집기",
         "Basic_Alg/01. String/가장 짧은 문자거리",
-        "Basic_Alg/10. Dynamic Programming/최대점수구하기"
+        "Basic_Alg"
     ]
 }

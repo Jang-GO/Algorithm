@@ -15,7 +15,7 @@ public class Main {
 
         for(int i=0;i<n;i++){
             String[] tmp = br.readLine().split(" ");
-            for(int j=0;j<n;j++){
+            for(int j=0;j<m;j++){
                 board[i][j] = Integer.parseInt(tmp[j]);
             }
         }
@@ -33,7 +33,7 @@ public class Main {
             for(int i=0;i<2;i++){
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-                if(nx>=0 && nx<m & ny >=0 && ny<n && board[ny][nx] !=0 ){
+                if(nx>=0 && nx<m && ny >=0 && ny<n && board[ny][nx] ==1){
                     DFS(nx,ny);
                 }
             }

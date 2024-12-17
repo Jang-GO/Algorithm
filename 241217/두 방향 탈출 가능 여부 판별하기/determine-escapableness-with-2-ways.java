@@ -35,8 +35,8 @@ public class Main {
             for(int i=0;i<2;i++){
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-                if(nx>=0 && nx<m && ny >=0 && ny<n && board[ny][nx] ==1 && !visited[nx][ny]){
-                    visited[nx][ny] = true;
+                if(nx>=0 && nx<m && ny >=0 && ny<n && board[ny][nx] ==1 && !visited[ny][nx]){
+                    visited[ny][nx] = true;
                     DFS(nx,ny);
                 }
             }

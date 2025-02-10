@@ -1,41 +1,31 @@
 import java.util.*;
-import java.util.stream.*;
-
 class Solution {
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
-        List<Stack<Integer>> boardList = new ArrayList<>();
-        Stack<Integer> st = new Stack<>();
+        Deque<Integer> dq = new ArrayDeque<>();
+        List<Deque<Integer>> list = new ArrayList<>();
+        
         for(int i=0;i<board.length;i++){
-            boardList.add(new Stack<>());
-        }
-
-        for (int i = board.length - 1; i >= 0; i--) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] != 0) {
-                    boardList.get(j).push(board[i][j]);
-                }
+            Deque<Integer> target = new ArrayDeque<>();
+            list.add(target);
+            for(int j=board[i].length-1;j>=0;j--){
+                if(board[j][i] != 0) target.push(board[j][i]);
             }
         }
-    
-        for(int ss:moves){
-            Stack<Integer> tmpSt = boardList.get(ss-1);
-            System.out.println(tmpSt);
-            if(!tmpSt.isEmpty()){
-                if(!st.isEmpty()){
-                    int tmp = st.peek();
-                    int stTmp = tmpSt.pop();
-                    if(tmp==stTmp){
-                        answer+=2;
-                        st.pop();
-                    }else{
-                        st.push(stTmp);
-                    }
-                }else{
-                    st.push(tmpSt.pop());
-                }
-            }
+        
+        
+        for(int i=0;i<moves.length;i++){
+            int targetIdx = moves[i]-1;
+            Deque<Integer> target = list.get(targetIdx);
+            if(target.isEmpty()) continue;
+            int next = target.pop();
+            
+            if(!dq.isEmpty() && next == dq.peek()){
+                dq.pop(); answer+=2;
+            }else dq.push(next);
+        
         }
+        
         return answer;
     }
 }

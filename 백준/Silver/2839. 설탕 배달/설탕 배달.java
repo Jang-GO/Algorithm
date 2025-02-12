@@ -1,29 +1,30 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-class Main{
-    static int[] dy;
-    public int solution(int n){
-        if(n < 3) return -1; 
-        dy = new int[Math.max(6, n+1)];
-        Arrays.fill(dy, -1);
-        dy[3] = 1;
-        dy[5] = 1;
-        for(int i=6; i<=n; i++){
-            if(dy[i-3] > 0){ 
-                dy[i] = dy[i-3] + 1;
-            }
-            if(i % 5 == 0 || (dy[i-5] > 0 && (dy[i] == -1 || dy[i-5] + 1 < dy[i]))){ 
-                dy[i] = dy[i-5] + 1;
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+
+        System.out.println(T.solution(n));
+    }
+
+    private int solution(int n) {
+        int kg5 = n/5;
+        int answer = -1;
+
+        for(;kg5>=0;kg5--){
+            int remain = n - (5 * kg5);
+            if(remain %3 == 0){
+                int kg3 = remain / 3;
+                answer = kg5 +  kg3;
+                break;
             }
         }
-        return dy[n];
-    }
-    public static void main(String[] args) {
-        Main T = new Main();
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        dy = new int[n+1]; 
-        System.out.println(T.solution(n));
+
+        return answer;
     }
 }

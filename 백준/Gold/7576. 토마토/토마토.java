@@ -1,69 +1,76 @@
-import java.io.*;
-import java.util.*;
 
-class Main{
-    static int n,m,day=0;
-    static int[][] board;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class Main {
+    static int[][] arr;
+    static int n,m,answer = 0;
     static int[] dx = {1,0,-1,0};
-    static int[] dy = {0,-1,0,1};
-    static class Point{
-        int x;
-        int y;
-        Point(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-    }
+    static int[] dy = {0,1,0,-1};
 
-    public static void BFS(){
-        Queue<Point> Q = new LinkedList<>();
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(board[i][j]==1) Q.offer(new Point(i,j));
-            }
-        }
-
-        while(!Q.isEmpty()){
-            int len = Q.size();
-            for(int i=0;i<len;i++){
-                Point tmp = Q.poll();
-                for(int j=0;j<4;j++){
-                    int nx = tmp.x + dx[j];
-                    int ny = tmp.y + dy[j];
-                    if(nx>=0 && nx<n && ny >=0 && ny<m && board[nx][ny]==0){
-                        board[nx][ny]=1;
-                        Q.offer(new Point(nx,ny));
-                    }
-                }
-                
-            }
-            day++;
-        }
-        day--;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                if(board[i][j]==0){
-                    day=-1;
-                    break;
-                }
-            }
-        }
-    }
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] ss = br.readLine().split(" ");
-        m = Integer.parseInt(ss[0]);
-        n = Integer.parseInt(ss[1]);
-        board = new int[n][m];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        arr = new int[m][n];
 
-        for(int i=0;i<n;i++){
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            for(int j=0;j<m;j++){
-                board[i][j] = Integer.parseInt(st.nextToken());
+        for(int i=0;i<m;i++){
+            st = new StringTokenizer(br.readLine());
+            for(int j=0;j<n;j++){
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
         BFS();
-        System.out.println(day);
+
+        for(int i=0;i<m;i++){
+            for (int j=0;j<n;j++){
+                if(arr[i][j] == 0){
+                    answer = -1;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(answer);
+    }
+
+    private static void BFS() {
+        Queue<Point> qu = new ArrayDeque<>();
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(arr[i][j]==1) qu.offer(new Point(i,j));
+            }
+        }
+        if(qu.isEmpty()) return;
+        while(!qu.isEmpty()){
+            int len = qu.size();
+            for(int i=0;i<len;i++){
+                Point now_p = qu.poll();
+                for(int j=0;j<4;j++){
+                    int ny = now_p.y + dy[j];
+                    int nx = now_p.x + dx[j];
+                    if(ny >=0 && ny < m && nx >=0 && nx < n && arr[ny][nx]==0){
+                        arr[ny][nx] = 1;
+                        qu.offer(new Point(ny,nx));
+                    }
+                }
+            }
+            if(qu.isEmpty()) break;
+            answer++;
+        }
+    }
+
+    static class Point{
+        int y, x;
+        Point(int y, int x){
+            this.y = y;
+            this.x = x;
+        }
     }
 }

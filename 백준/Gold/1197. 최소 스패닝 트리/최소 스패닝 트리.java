@@ -3,61 +3,68 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-class Edge implements Comparable<Edge>{
-    int v1;
-    int v2;
-    int cost;
-    public Edge(int v1, int v2, int cost) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.cost = cost;
-    }
-    @Override
-    public int compareTo(Edge o) {
-        return this.cost - o.cost;
-    }
-}
-public class Main{
-    static int[] unf;
-
-    private static int Find(int v){
-        if(unf[v] == v) return v;
-        else return unf[v] = Find(unf[v]);
-    }
-    private static void Union(int a, int b){
-        int fa = Find(a);
-        int fb = Find(b);
-        if(fa!=fb) unf[fa] = fb;
-    }
+public class Main {
+    // 프림 - 인접리스트
+    static int V, sum;
+    static List<ArrayList<Vertex>> graph = new ArrayList<>();
+    static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split(" ");
-        int v = Integer.parseInt(input[0]);
-        int e = Integer.parseInt(input[1]);
-        ArrayList<Edge> list = new ArrayList<>();
-        unf = new int[v+1];
-        for(int i=0;i<=v;i++) unf[i] = i;
-        for(int i=0;i<e;i++){
-            StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        V = Integer.parseInt(st.nextToken());
+        int e = Integer.parseInt(st.nextToken());
+        visited = new boolean[V+1];
+
+        for(int i=0;i<=V;i++) graph.add(new ArrayList<>());
+
+        for(int i=1;i<=e;i++){
+            st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            list.add(new Edge(a,b,c));
+            graph.get(a).add(new Vertex(b,c));
+            graph.get(b).add(new Vertex(a,c));
         }
-        Collections.sort(list);
-        int answer = 0;
-        for(Edge ob:list){
-            int f1 = Find(ob.v1);
-            int f2 = Find(ob.v2);
-            if(f1 != f2){
-                answer += ob.cost;
-                Union(f1, f2);
+
+        solution();
+        System.out.println(sum);
+    }
+    private static void solution(){
+        PriorityQueue<Vertex> pQ = new PriorityQueue<>();
+        int cnt = 0;
+        pQ.offer(new Vertex(1,0));
+
+        while(!pQ.isEmpty()){
+            Vertex ver = pQ.poll();
+            if(visited[ver.v]) continue;
+
+            visited[ver.v] = true;
+            sum+=ver.c;
+            cnt++;
+
+            if(cnt == V) continue;
+
+            for(Vertex now_v: graph.get(ver.v)){
+                if(visited[now_v.v]) continue;
+                pQ.offer(new Vertex(now_v.v, now_v.c));
             }
         }
-        System.out.println(answer);
+    }
+
+    static class Vertex implements Comparable<Vertex>{
+        int v, c;
+        Vertex(int v, int c){
+            this.v = v;
+            this.c = c;
+        }
+        @Override
+        public int compareTo(Vertex o){
+            return this.c - o.c;
+        }
     }
 }

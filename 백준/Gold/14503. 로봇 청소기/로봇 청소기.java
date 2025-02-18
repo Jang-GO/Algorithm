@@ -1,69 +1,75 @@
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
-class Robot{
-    int x;
-    int y;
-    int d;
-    Robot(int x, int y, int d){
-        this.x = x;
-        this.y = y;
-        this.d = d; 
-    }
-}
+public class Main {
+    static int[][] map;
+    static int n, m, answer = 0;
+    static int r, c, d = 0;
+    static int[] dy = {-1, 0, 1, 0};
+    static int[] dx = {0, 1, 0, -1};
 
-class Main{
-    static int[][] arr;
-    static int n,m,answer=1;
-    static int[] dx = {-1,0,1,0};
-    static int[] dy = {0,1,0,-1};
-
-    public void cleanRoom(Robot robot) throws IOException{
-        arr[robot.x][robot.y] = -1;
-
-        for(int i=0;i<4;i++){
-            robot.d = (robot.d+3)%4;
-            int nx = robot.x+dx[robot.d];
-            int ny = robot.y+dy[robot.d];
-            if(nx>=0 && nx<n &&ny>=0&& ny<m && arr[nx][ny]==0){
-                answer++;
-                robot.x = nx;
-                robot.y = ny;
-                cleanRoom(robot);
-                return;
-            }
-        }
-
-        //탈출하면 4칸 다 청소된거임 => 후진로직
-        int dd = (robot.d+2)%4;
-        int bx = robot.x + dx[dd];
-        int by = robot.y + dy[dd];
-        if(bx>=0 && bx<n && by>=0 && by<m && arr[bx][by]!=1){
-            robot.x = bx;
-            robot.y = by;
-            cleanRoom(robot);
-        }else return;
-    }
     public static void main(String[] args) throws IOException {
-        Main T = new Main();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] tmp = br.readLine().split(" ");
-        n = Integer.parseInt(tmp[0]);
-        m = Integer.parseInt(tmp[1]);
-        arr = new int[n][m];
-        String[] tmp1 = br.readLine().split(" ");
-        int x = Integer.parseInt(tmp1[0]);
-        int y = Integer.parseInt(tmp1[1]);
-        int d = Integer.parseInt(tmp1[2]);
-        for(int i=0;i<n;i++){
-            String[] tmp2 = br.readLine().split(" ");
-            for(int j=0;j<m;j++){
-                arr[i][j] = Integer.parseInt(tmp2[j]);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+        r = Integer.parseInt(st.nextToken());
+        c = Integer.parseInt(st.nextToken());
+        d = Integer.parseInt(st.nextToken());
+
+        map = new int[n][m];
+
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < m; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        Robot robot = new Robot(x, y, d);
 
-        T.cleanRoom(robot);
+        // 1은 벽, 0은 청소 안됨, -1은 청소됨으로
+        while (true) {
+            if (map[r][c] == 0) {
+                map[r][c] = -1;
+                answer++;
+            }
+
+            if (check4way()) {
+                d = (d + 3) % 4;
+                int ny = r + dy[d];
+                int nx = c + dx[d];
+                if (ny >= 0 && ny < n && nx >= 0 && nx < m && map[ny][nx] == 0) {
+                    r = ny;
+                    c = nx;
+                }
+            } else {
+                int dd = (d + 2) % 4;
+                int by = r + dy[dd];
+                int bx = c + dx[dd];
+                if (by >= 0 && by < n && bx >= 0 && bx < m && map[by][bx] != 1) {
+                    r = by;
+                    c = bx;
+                } else break;
+            }
+        }
+
         System.out.println(answer);
+    }
+
+    // 청소되지 않은 칸이 있나 확인
+    private static boolean check4way() {
+        for (int i = 0; i < 4; i++) {
+            int ny = r + dy[i];
+            int nx = c + dx[i];
+
+            if (ny >= 0 && ny < n && nx >= 0 && nx < m && map[ny][nx] == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -17,9 +17,9 @@ public class Main {
         map = new int[n][m];
 
         for (int i = 0; i < n; i++) {
-            String[] tmp = br.readLine().split("");
+            String tmp = br.readLine();
             for (int j = 0; j < m; j++) {
-                map[i][j] = Integer.parseInt(tmp[j]);
+                map[i][j] = tmp.charAt(j) - '0';
                 if(map[i][j] == 1) max_area=1;
             }
         }

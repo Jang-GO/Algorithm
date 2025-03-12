@@ -1,30 +1,35 @@
 class Solution {
-    static int answer=Integer.MAX_VALUE;
-    static int[] ch = new int[50];
+    static int answer = Integer.MAX_VALUE;
+    // 루프 방지
+    static boolean[] ch = new boolean[50];
     public int solution(String begin, String target, String[] words) {
-        DFS(begin,target,words,0);
-        if(answer==Integer.MAX_VALUE) return 0;
+        // 0번 인덱스를 시작으로 탐색 시작
+        DFS(begin, target, words, 0);
+        if(answer == Integer.MAX_VALUE) return 0;
         else return answer;
     }
-    public void DFS(String begin, String target, String[] words, int L){
-        if(answer<L) return;
-        if(begin.equals(target)){
-            answer = Math.min(answer, L);
-        }else{
+    
+    private void DFS(String begin, String target, String[] words, int cnt){
+        // 가지치기 : 답보다 커지면 더 이상 볼 필요가 없음
+        if(answer < cnt) return;
+        
+        if(begin.equals(target)) answer = Math.min(answer, cnt);
+        else{
             for(int i=0;i<words.length;i++){
-                if(diff1(begin, words[i]) && ch[i]!=1){
-                    ch[i]=1;
-                    DFS(words[i], target, words, L+1);
-                    ch[i]=0;
+                if(diff1(begin, words[i]) && !ch[i]){
+                    ch[i] = true;
+                    DFS(words[i], target, words, cnt+1);
+                    ch[i] = false;
                 }
             }
         }
     }
-    public boolean diff1(String a, String b){
-        int diff = 0;
-        for(int i=0;i<a.length();i++){
-            if(a.charAt(i) != b.charAt(i)) diff++;
+    
+    private boolean diff1(String begin, String target){
+        int diffCnt = 0;
+        for(int i=0;i<begin.length();i++){
+            if(begin.charAt(i) != target.charAt(i)) diffCnt++;
         }
-        return (diff==1) ? true : false;
+        return diffCnt == 1;
     }
 }

@@ -4,10 +4,10 @@ class Solution {
     public int[] solution(String[] gems) {
         int[] answer = {0, gems.length-1};
         
-        Set<String> jewelryType = new HashSet<>();
-        for(String ss:gems) jewelryType.add(ss);
+        Set<String> gemType = new HashSet<>();
+        for(String ss:gems) gemType.add(ss);
             
-        int target = jewelryType.size();
+        int target = gemType.size();
         
         int lt = 0, rt = 0;
         int min = Integer.MAX_VALUE;

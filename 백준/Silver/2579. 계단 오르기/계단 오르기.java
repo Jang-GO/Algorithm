@@ -1,29 +1,28 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-class Main{
-    static int n;
+public class Main {
     static int[] dy;
+    static int[] arr;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
 
-    public int solution(int[] arr){
-        dy[0] = 0;
+        dy = new int[301];
+        arr = new int[301];
+        for(int i=1;i<=n;i++) arr[i] = Integer.parseInt(br.readLine());
+
+        System.out.println(solution(n));
+    }
+
+    private static int solution(int n){
         dy[1] = arr[1];
-        if(n>=2){
-            dy[2] = arr[1]+arr[2];
-        }
+        dy[2] = arr[1]+arr[2];
+
         for(int i=3;i<=n;i++){
-            dy[i] = Math.max(dy[i-2], dy[i-3]+arr[i-1]) +arr[i];
+            dy[i] = Math.max(dy[i-2], dy[i-3]+arr[i-1]) + arr[i];
         }
         return dy[n];
-    }
-    public static void main(String[] args) throws IOException{
-        Main T = new Main();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n+1];
-        for(int i=1;i<=n;i++){
-            arr[i] = Integer.parseInt(br.readLine());
-        }
-        dy = new int[n+1];
-        System.out.println(T.solution(arr));
     }
 }

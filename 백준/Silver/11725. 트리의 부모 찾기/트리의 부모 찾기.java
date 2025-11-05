@@ -1,40 +1,50 @@
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
 
-class Main{
+public class Main {
+    static List<ArrayList<Integer>> tree = new ArrayList<>();
     static boolean[] visited;
     static int[] parent;
-    static ArrayList<ArrayList<Integer>> list = new ArrayList<>();
 
-    public void DFS(int root){
+    private static void DFS(int root){
         visited[root] = true;
-        for(int x:list.get(root)){
-            if(!visited[x]){
-                parent[x] = root;
-                DFS(x);
+
+        for(int next: tree.get(root)){
+            if(!visited[next]){
+                parent[next] = root;
+                DFS(next);
             }
         }
     }
-    public static void main(String[] args) throws IOException{
-        Main T = new Main();
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        visited = new boolean[n+1];
-        parent = new int[n+1];
-        for(int i=0;i<=n;i++){
-            list.add(new ArrayList<>());
+        int N = Integer.parseInt(br.readLine());
+
+        visited = new boolean[N+1];
+        parent = new int[N+1];
+
+        for(int i=0;i<=N;i++){
+            tree.add(new ArrayList<>());
         }
-        for(int i=2;i<=n;i++){
-            String[] tmp = br.readLine().split(" ");
-            int a = Integer.parseInt(tmp[0]);
-            int b = Integer.parseInt(tmp[1]);
-            list.get(a).add(b);
-            list.get(b).add(a);
+
+        for(int i=2;i<=N;i++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+
+            tree.get(a).add(b);
+            tree.get(b).add(a);
         }
-        T.DFS(1);
-        
-        for(int i=2;i<=n;i++){
-            System.out.println(parent[i]);
-        }
+        DFS(1);
+
+        Arrays.stream(parent)
+                .filter(x -> x!=0)
+                .forEach(System.out::println);
     }
 }
